@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="payment.php">
+  <title>Apply - Abba Online Academic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #b43b3b;
+    }
+    body {
+      background-color: #9ec0a7;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: var(--primary-color);
+    }
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    /* Form styling */
+    .form-section {
+      background: #c1d6c4;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/img/log.jpg" alt="College Logo">
+        Abba Oline Academic
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="apply.html">Apply</a></li>
+          <li class="nav-item"><a class="nav-link" href="check_status.html">Check Status</a></li>
+          <li class="nav-item"><a class="nav-link" href="notices.php">Notices</a></li>
+          <li class="nav-item"><a class="nav-link" href="student-portal.html">Student</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4 text-primary">Application Form</h2>
+    <form id="applicationForm" action="submit_application.php" method="POST" enctype="multipart/form-data">
+
+      <!-- PERSONAL INFORMATION -->
+      <div class="form-section">
+        <h4 class="mb-3 text-primary">Personal Information</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="fullname" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="text" name="phone" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" name="dob" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Gender</label>
+            <select name="gender" class="form-select" required>
+              <option value="">-- Select Gender --</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">State of Origin</label>
+            <input type="text" name="state" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">L.G.A</label>
+            <input type="text" name="lga" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Residential Address</label>
+            <input type="text" name="address" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACADEMIC INFORMATION -->
+      <div class="form-section">
+        <h4 class="mb-3 text-primary">Academic Information</h4>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label">Last School Attended</label>
+            <input type="text" name="school" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Qualification(s)</label>
+            <input type="text" name="qualification" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Course Applying For</label>
+            <select name="course" class="form-select" required>
+              <option value="">-- Select Course --</option>
+              <option>Community Health</option>
+              <option>Medical Laboratory Technology</option>
+              <option>Pharmacy Technician</option>
+              <option>Public Health Technology</option>
+              <option>Health Information Management</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- FIRST SITTING -->
+        <hr>
+        <h5 class="mb-3 text-success">O’Level - First Sitting</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light"><tr><th>Subject</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td>English Language</td><td><select name="english1" class="form-select" required>
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Mathematics</td><td><select name="maths1" class="form-select" required>
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Chemistry</td><td><select name="chemistry1" class="form-select" required>
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Physics</td><td><select name="physics1" class="form-select" required>
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Biology</td><td><select name="biology1" class="form-select" required>
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Others</td><td><div class="input-group">
+                <input type="text" name="other_subject1" class="form-control" placeholder="Subject">
+                <select name="other_grade1" class="form-select">
+                  <option value="">-- Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option>
+                </select></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SECOND SITTING -->
+        <hr>
+        <h5 class="mb-3 text-success">O’Level - Second Sitting</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light"><tr><th>Subject</th><th>Grade</th></tr></thead>
+            <tbody>
+              <tr><td>English Language</td><td><select name="english2" class="form-select">
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Mathematics</td><td><select name="maths2" class="form-select">
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Chemistry</td><td><select name="chemistry2" class="form-select">
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Physics</td><td><select name="physics2" class="form-select">
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Biology</td><td><select name="biology2" class="form-select">
+                <option value="">-- Select Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option></select></td></tr>
+              <tr><td>Others</td><td><div class="input-group">
+                <input type="text" name="other_subject2" class="form-control" placeholder="Subject">
+                <select name="other_grade2" class="form-select">
+                  <option value="">-- Grade --</option><option>A1</option><option>B2</option><option>B3</option><option>C4</option><option>C5</option><option>C6</option><option>D7</option><option>E8</option><option>F9</option>
+                </select></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- UPLOAD CREDENTIALS -->
+      <div class="form-section">
+        <h4 class="mb-3 text-primary">Upload Credentials</h4>
+        <p class="text-muted">All files must be in JPG format and not exceed 200KB.</p>
+        <div class="row g-3">
+          <div class="col-md-6"><label class="form-label">Passport Photo</label><input type="file" name="passport" accept=".jpg,.jpeg" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label">O’Level Result</label><input type="file" name="olevel" accept=".jpg,.jpeg" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label">Primary Certificate</label><input type="file" name="primarycert" accept=".jpg,.jpeg" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label">Indigene Certificate</label><input type="file" name="indigene" accept=".jpg,.jpeg" class="form-control" required></div>
+          <div class="col-md-6"><label class="form-label">Birth Certificate</label><input type="file" name="birthcert" accept=".jpg,.jpeg" class="form-control" required></div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-danger px-5 py-2">Submit Application</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Abba Online Academic | All Rights Reserved</p>
+      <div>
+        <a href="#"><i class="bi bi-facebook me-3"></i></a>
+        <a href="#"><i class="bi bi-twitter me-3"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

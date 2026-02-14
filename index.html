@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="student-portal.html">
+
+  <title>Abba Online Academic</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* HERO SECTION */
+    .hero-carousel {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+    .hero-carousel .carousel-item img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 650px;
+    }
+
+    /* Notice Widget */
+    #notices-widget {
+      margin: 40px auto;
+      max-width: 700px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #notices-widget a {
+      font-weight: 600;
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    #notices-widget a:hover {
+      text-decoration: underline;
+    }
+
+    /* Notice Slide-in */
+    #notice-slide {
+      display:none;
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:9999;
+      max-width:360px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ==========================================================
+                      TOP NAVIGATION (OPTION A)
+=========================================================== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-college">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="assets/img/log.jpg" alt="logo" width="80" class="me-2">
+      Abba Online Academic
+    </a>
+     <ul>
+                                        <li class="quick-call-info"::before>
+                        <a class="quick-call" href="tel:+2348139495649">+2348139495649</a>
+                        <a class="quick-call" href="tel: +2348104841539">+2348104841539</a>
+                        <a  class="quick-email" href="mailto:/Royalchts@Gmail.Com">Royalchts@Gmail.Com</a>
+                    </li>
+                                                            <li class="quick-address-info">
+                    <span class="main-address">Bene Clinic, Yelwa Road, Shendam plateau State Nig.</span>
+                    <span class="sub-address">Shendam, Plateau State, Nigeria</span>
+                    </li>
+                                </ul>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="apply.html">Apply</a></li>
+        <li class="nav-item"><a class="nav-link" href="check_status.html">Check Status</a></li>
+        <li class="nav-item"><a class="nav-link" href="notices.php">Notice</a></li>
+        <li class="nav-item"><a class="nav-link" href="student-portal.html">Student</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ==========================================================
+                        HERO CAROUSEL
+=========================================================== -->
+<section class="hero-carousel">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/slide1.jpg" class="d-block w-100" alt="Campus 1">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/slide2.jpg" class="d-block w-100" alt="Campus 2">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/slide3.jpg" class="d-block w-100" alt="Campus 3">
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="display-6 fw-bold">Welcome to Abba Online Academic</h1>
+    <p class="lead">Empowering the next generation of healthcare professionals.</p>
+    <a href="apply.html" class="btn btn-primary btn-lg">Apply Now</a>
+  </div>
+</section>
+
+
+<!-- ==========================================================
+                  NOTICE SLIDE-IN POPUP
+=========================================================== -->
+<div id="notice-slide">
+  <div style="background:#b43b3b; color:#fff; padding:15px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.15);">
+    <div id="notice-slide-title" style="font-weight:700;"></div>
+    <div id="notice-slide-body" style="font-size:0.95rem; margin-top:6px;"></div>
+    <div style="margin-top:10px; text-align:right;">
+      <a id="notice-slide-link" href="#" class="btn btn-light btn-sm">Read</a>
+      <button id="notice-slide-close" class="btn btn-outline-light btn-sm">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==========================================================
+                  LATEST NOTICE WIDGET (HOMEPAGE)
+=========================================================== -->
+<div id="notices-widget">
+  <h5 class="fw-bold text-primary">Latest Notices</h5>
+  <div id="notices-widget-list" class="mt-2"></div>
+</div>
+
+
+
+<!-- ==========================================================
+                        ABOUT SECTION
+=========================================================== -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-md-6">
+        <img src="assets/img/campu.jpg" class="img-fluid rounded shadow" alt="Campus Image">
+      </div>
+
+      <div class="col-md-6">
+        <h2 class="fw-bold text-primary mb-3">About Our College</h2>
+        <p>
+         Welcome to the Bene Royal College of Health, Science And Technology Shendam a unique high intitution designed
+         for quality, student knowledge and noble charater for excellence. Our goal is to equip student with impeccable
+         charater, high quality knowledge & Skills that will transferm you into professionals who will positively impact
+         communuties And the world
+         we offer Diploma programs for health services and have package them for your optimal benefit.
+        </p>
+        <p>
+          We are optimistic that you will find your academic career with us a rewarding and fulfilling experience.
+          We wish you the very best at the Royal College of Health, Science And Technology RCHT.... you are a chosen generation,
+          a royal priest, a holy nation,a peculiar people called so that you may proclaim the excellencies of Him who has 
+          called you out of darkness into His marvelous light (1 peter2:9). You are Welcome!
+          Dr.(Mrs.)Ayaebene
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================
+                       PROGRAMS SECTION
+=========================================================== -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold text-primary mb-4">Our Programs</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5>Community Health</h5>
+            <p>Become a community health extension worker and impact lives.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5>Medical Laboratory Technology</h5>
+            <p>Hands-on diagnostic laboratory science for healthcare delivery.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5>Pharmacy Technician</h5>
+            <p>Learn principles of dispensing and pharmaceutical management.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5>Public Health Technology</h5>
+            <p>Disease prevention, health promotion, and population health.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5>Health Information Management</h5>
+            <p>Master medical data, electronic health records, and health IT systems.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ==========================================================
+                            FOOTER
+=========================================================== -->
+<footer class="bg-college text-white text-center py-4">
+  <div class="container">
+
+    <div class="mb-3">
+      <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-white me-3 fs-5"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="text-white me-3 fs-5"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+    </div>
+
+    <small>© <span id="year"></span> Abba Online Academic. All Rights Reserved.</small>
+  </div>
+</footer>
+
+
+<!-- ==========================================================
+                        SCRIPTS
+=========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- NOTICE SYSTEM SCRIPT -->
+<script>
+async function fetchJson(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Network error');
+  return res.json();
+}
+
+(async function(){
+  try {
+    const latest = await fetchJson('latest_notice.php');
+
+    if (latest && latest.id) {
+      const lastSeen = localStorage.getItem('last_notice_id') || 0;
+
+      if (parseInt(latest.id) > parseInt(lastSeen)) {
+        document.getElementById('notice-slide-title').innerText = latest.title;
+        document.getElementById('notice-slide-body').innerText = latest.excerpt;
+        document.getElementById('notice-slide-link').href = latest.url;
+        document.getElementById('notice-slide').style.display = 'block';
+      }
+    }
+
+    const list = await fetchJson('latest_notices_list.php');
+    const container = document.getElementById('notices-widget-list');
+
+    if (container) {
+      container.innerHTML = list
+      .map(n => `<div class="mb-1"><a href="${n.url}">${n.title}</a> <small class="text-muted">(${n.created_at})</small></div>`)
+      .join('');
+    }
+
+    document.getElementById('notice-slide-close').onclick = function(){
+      if (latest && latest.id) localStorage.setItem('last_notice_id', latest.id);
+      document.getElementById('notice-slide').style.display = 'none';
+    }
+
+  } catch(e){
+    console.error(e);
+  }
+})();
+</script>
+
+</body>
+</html>
